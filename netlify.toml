@@ -2,7 +2,6 @@
   command = "npm run build"
   publish = "dist"
 
-[[headers]]
   for = "/*"
   [headers.values]
     X-Debug-Message = "Hatomaran Project"
@@ -12,3 +11,9 @@
   for = "*.svg"
   [headers.values]
     Content-Type = "image/svg+xml"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "image/*"

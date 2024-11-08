@@ -6,7 +6,7 @@ export const projects : Project[] =[
         bechanceLink: '/#',
         images: [
             {
-                url: 'public/images/pohuypank.png',
+                url: new URL('/images/pohuypank.png', import.meta.url).href,
                 description: 'Lorem ipsum dolor.'
             }
         ]
@@ -17,11 +17,11 @@ export const projects : Project[] =[
         bechanceLink: '/#',
         images: [
             {
-                url: '/public/images/boing.jpg',
+                url: new URL('/images/boing.jpg', import.meta.url).href,
                 description: 'Lorem ipsum dolor.'
             },
             {
-                url: '/public/images/boingdemo.jpg',
+                url: new URL('/images/boingdemo.jpg', import.meta.url).href,
                 description: 'bubeba'
             }
         ]

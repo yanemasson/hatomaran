@@ -163,7 +163,7 @@ const projects = [
     bechanceLink: "/#",
     images: [
       {
-        url: "public/images/pohuypank.png",
+        url: new URL("/images/pohuypank.png", self.location).href,
         description: "Lorem ipsum dolor."
       }
     ]
@@ -174,11 +174,11 @@ const projects = [
     bechanceLink: "/#",
     images: [
       {
-        url: "/public/images/boing.jpg",
+        url: new URL("/images/boing.jpg", self.location).href,
         description: "Lorem ipsum dolor."
       },
       {
-        url: "/public/images/boingdemo.jpg",
+        url: new URL("/images/boingdemo.jpg", self.location).href,
         description: "bubeba"
       }
     ]
