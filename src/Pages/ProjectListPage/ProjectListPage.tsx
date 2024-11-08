@@ -10,7 +10,7 @@ import {Project} from "../../types/Project.ts";
 const ProjectList = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [currentProjectNumber, setCurrentProjectNumber] = useState(0)
-    const { projects, isLoading } = useProjects<Project[]>()
+    const { projects } = useProjects<Project[]>()
     const goBack = () => {
         if(currentProjectNumber === 0) {
             setCurrentProjectNumber(projects.length - 1)

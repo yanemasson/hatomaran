@@ -4,7 +4,7 @@ import {Anchor} from "../../components/Anchor.tsx";
 import useProjects from "../../hooks/useProjects.ts";
 
 const ProjectPage = () => {
-    const { projects, loading } = useProjects()
+    const { projects } = useProjects()
 
     const { title } = useParams<string>();
     const project = projects.find(p => p.title === title);
