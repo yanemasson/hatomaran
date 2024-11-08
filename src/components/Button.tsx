@@ -7,7 +7,7 @@ export enum StyleVariant {
 }
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: StyleVariant;
+    variant: StyleVariant;
 };
 
 export const Button = ({children, variant, ...props}: ButtonProps) => {

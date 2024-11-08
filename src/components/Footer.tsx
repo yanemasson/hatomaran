@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {Text, TextVariant} from "./Text.tsx";
 import {Anchor} from "./Anchor.tsx";
 

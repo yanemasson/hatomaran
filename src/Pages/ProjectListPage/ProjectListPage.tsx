@@ -1,6 +1,5 @@
 import {projects} from "../../../public/ProjectData.ts";
 import {useState} from "react";
-import * as React from "react";
 import {Text, TextVariant} from "../../components/Text.tsx";
 import {Link} from "react-router-dom";
 
@@ -21,7 +20,7 @@ const ProjectList = () => {
             setCurrentProjectNumber(currentProjectNumber + 1)
         }
     }
-    const toggle = (num) => {
+    const toggle = (num : number) => {
         setCurrentProjectNumber(num)
         setIsOpen(!isOpen)
     }

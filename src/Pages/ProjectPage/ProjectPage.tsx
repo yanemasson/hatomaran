@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useParams} from 'react-router-dom';
 import {projects} from '../../../public/ProjectData';
 import {Text, TextVariant} from "../../components/Text.tsx";
@@ -6,8 +5,12 @@ import {Anchor} from "../../components/Anchor.tsx";
 
 
 const ProjectPage = () => {
-    const { title } = useParams<{ title}>();
+    const { title } = useParams<string>();
     const project = projects.find(p => p.title === title);
+
+    if(!project) {
+        return <Text variant={TextVariant.H1}>404</Text>
+    }
 
     return (
         <div className="flex flex-col items-center mt-20">
