@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "public/images/projects"
+public_folder: "/images/projects"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Название", name: "title", widget: "string", required: true }
+      - {
+        label: "Описание",
+        name: "description",
+        widget: "text",
+        required: true
+      }
+      - {
+        label: "Ссылка на Behance",
+        name: "behanceLink",
+        widget: "string",
+        required: false
+      }
+      - label: "Изображения"
+        name: "images"
+        widget: "list"
+        fields:
+          - {
+            label: "Изображение",
+            name: "url",
+            widget: "image",
+            required: true
+          }
+          - {
+            label: "Описание изображения",
+            name: "description",
+            widget: "string",
+            required: false
+          }
