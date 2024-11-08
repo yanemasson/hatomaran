@@ -17,11 +17,11 @@ export const projects : Project[] =[
         bechanceLink: '/#',
         images: [
             {
-                url: 'public/images/boing.jpg',
+                url: '/public/images/boing.jpg',
                 description: 'Lorem ipsum dolor.'
             },
             {
-                url: 'public/images/boingdemo.jpg',
+                url: '/public/images/boingdemo.jpg',
                 description: 'bubeba'
             }
         ]
