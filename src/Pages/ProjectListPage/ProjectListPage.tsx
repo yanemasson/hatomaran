@@ -5,12 +5,11 @@ import Image from "../../components/Image.tsx";
 import { ReactComponent as LeftArrow } from "@/assets/icons/arrow_left.svg";
 import { ReactComponent as RightArrow } from "@/assets/icons/arrow_right.svg";
 import {useProjects} from "../../hooks/useProjects.ts";
-import {Project} from "../../types/Project.ts";
 
 const ProjectList = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [currentProjectNumber, setCurrentProjectNumber] = useState(0)
-    const { projects } = useProjects<Project[]>()
+    const { projects } = useProjects()
     const goBack = () => {
         if(currentProjectNumber === 0) {
             setCurrentProjectNumber(projects.length - 1)

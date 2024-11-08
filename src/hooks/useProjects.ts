@@ -4,8 +4,6 @@ import {Project} from "../types/Project.ts";
 
 export const useProjects = () => {
     const [projects, setProjects] = useState<Project[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
     useEffect(() => {
         const loadProjects = async () => {
             const projectFiles = import.meta.glob('/content/projects/*.md', { as: 'raw' });
@@ -23,13 +21,12 @@ export const useProjects = () => {
                 loadedProjects.push(project);
             }
                 setProjects(loadedProjects);
-                setIsLoading(false);
         };
 
         loadProjects();
     }, []);
 
-    return { projects, isLoading };
+    return { projects};
 };
 
 export default useProjects;
