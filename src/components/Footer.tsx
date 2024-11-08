@@ -1,5 +1,7 @@
 import {Text, TextVariant} from "./Text.tsx";
 import {Anchor} from "./Anchor.tsx";
+import { ReactComponent as BehanceIcon } from '@/assets/icons/ic_behance.svg'
+import { ReactComponent as InstagramIcon } from "@/assets/icons/ic_instagram.svg";
 
 const Footer = () => {
     return (
@@ -11,8 +13,8 @@ const Footer = () => {
             </div>
 
             <div className='flex flex-col justify-center items-center lg:flex-row'>
-                <Anchor to={'https://www.behance.net/hatomar'}><img alt='Behance' className='h-10' src='src/icons/ic_bechance.svg'/></Anchor>
-                <Anchor to={'https://www.instagram.com/hatomaran'}><img alt='Instagram' className='h-10' src='src/icons/ic_instagram.svg'/></Anchor>
+                <Anchor to={'https://www.behance.net/hatomar'}><InstagramIcon/></Anchor>
+                <Anchor to={'https://www.instagram.com/hatomaran'}><BehanceIcon/></Anchor>
             </div>
         </div>
 )};

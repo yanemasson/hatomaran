@@ -2,6 +2,9 @@ import {projects} from "../../../public/ProjectData.ts";
 import {useState} from "react";
 import {Text, TextVariant} from "../../components/Text.tsx";
 import {Link} from "react-router-dom";
+import Image from "../../components/Image.tsx";
+import { ReactComponent as LeftArrow } from "@/assets/icons/arrow_left.svg";
+import { ReactComponent as RightArrow } from "@/assets/icons/arrow_right.svg";
 
 const ProjectList = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -30,17 +33,13 @@ const ProjectList = () => {
             {isOpen &&
                 <>
                     <div className={` p-3 top-20 fixed z-40 bg-white left-2 right-2 lg:left-[27%] lg:top-3 lg:w-[46%]`}>
-                        <button className='fixed top-[40%] left-[18%]  items-center justify-center w-16' onClick={() => goBack()}>
-                            <img alt='<' src='src/icons/arrow_left.svg'/>
-                        </button>
+                        <LeftArrow className='fixed top-[40%] left-[18%]  items-center justify-center w-16' onClick={() => goBack()}/>
                         <div className='flex flex-col'>
-                            <img src={projects[currentProjectNumber].images[0].url} alt={projects[currentProjectNumber].images[0].description}/>
+                            <Image src={projects[currentProjectNumber].images[0].url} alt={projects[currentProjectNumber].images[0].description}/>
                             <Text variant={TextVariant.H6}>{projects[currentProjectNumber].title}</Text>
                             <Link to={`/project/${projects[currentProjectNumber].title}`}>Open full project...</Link>
                         </div>
-                        <button className='fixed left-[78%] top-[40%] items-center justify-center w-16' onClick={() => goNext()}>
-                            <img alt='>' src='src/icons/arrow_right.svg'/>
-                        </button>
+                        <RightArrow className='fixed left-[78%] top-[40%] items-center justify-center w-16' onClick={() => goNext()}/>
                     </div>
                     <div
                         className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30"
@@ -50,7 +49,7 @@ const ProjectList = () => {
 
             }
             {projects.map((item, index) => (
-                <img alt={item.title} className='py-2 lg:h-96 lg:w-96 lg:p-2' onClick={() => toggle(index)} src={item.images[0].url} key={item.title}/>
+                <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 lg:h-96 lg:w-96 lg:p-2'  src={item.images[0].url} /></div>
             ))}
         </div>
     );
