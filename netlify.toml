@@ -3,16 +3,21 @@
   publish = "dist"
 
 [[headers]]
-  for = "/*"
-  [headers.values]
-    X-Debug-Message = "Hatomaran Project"
-    Cache-Control = "public, max-age=0, must-revalidate"
-
   for = "*.svg"
   [headers.values]
     Content-Type = "image/svg+xml"
 
-  for = "/images/*"
+[[headers]]
+  for = "*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "image/*"
+    Content-Type = "image/jpeg"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Content-Type = "image/png"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
