@@ -14,6 +14,7 @@ export default defineConfig({
       include: '**/*.svg',
     })
   ],
+  assetsInclude: ['**/*.md'],
   publicDir: 'public',
   resolve: {
     alias: {

@@ -1,10 +1,11 @@
 import {useParams} from 'react-router-dom';
-import {projects} from '../../../public/ProjectData';
 import {Text, TextVariant} from "../../components/Text.tsx";
 import {Anchor} from "../../components/Anchor.tsx";
-
+import useProjects from "../../hooks/useProjects.ts";
 
 const ProjectPage = () => {
+    const { projects, loading } = useProjects()
+
     const { title } = useParams<string>();
     const project = projects.find(p => p.title === title);
 
@@ -21,7 +22,7 @@ const ProjectPage = () => {
             <div className='flex flex-col lg:flex-row'>
                 {project.images.map((item, index) => (<img className='w-96' src={item.url} alt={item.description} key={index}/>))}
             </div>
-            <Anchor to={project.bechanceLink}>Bechance link</Anchor>
+            <Anchor to={project.behanceLink}>Bechance link</Anchor>
         </div>
     );
 };

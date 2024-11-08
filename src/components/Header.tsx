@@ -47,7 +47,7 @@ const Header = () => {
                     {menuItems.map((item) => (
                         <div className="p-3 w-28" onClick={toggleMenu} key={item.path} >
                             <Link to={item.path}>
-                                <Text variant={TextVariant.H6} >
+                                <Text variant={TextVariant.H6} key={item.path} >
                                     {item.label}
                                 </Text>
                             </Link>
