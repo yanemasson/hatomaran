@@ -20,8 +20,8 @@ const Header = () => {
         return ( //desktop
             <nav className='bg-white h-20 w-full gap-20 flex justify-center items-center fixed left-0 top-0'>
                 {menuItems.map((item) => (
-                    <Link className='hover:underline' to={item.path}>
-                        <Text variant={TextVariant.H6} key={item.path} >
+                    <Link className='hover:underline' to={item.path} key={item.path}>
+                        <Text variant={TextVariant.H6} >
                             {item.label}
                         </Text>
                     </Link>
@@ -47,7 +47,7 @@ const Header = () => {
                     {menuItems.map((item) => (
                         <div className="p-3 w-28" onClick={toggleMenu} key={item.path} >
                             <Link to={item.path}>
-                                <Text variant={TextVariant.H6} key={item.path} >
+                                <Text variant={TextVariant.H6} >
                                     {item.label}
                                 </Text>
                             </Link>

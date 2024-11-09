@@ -114,7 +114,7 @@ const Header = () => {
   if (lg) {
     return (
       //desktop
-      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "bg-white h-20 w-full gap-20 flex justify-center items-center fixed left-0 top-0", children: menuItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { className: "hover:underline", to: item.path, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: item.label }, item.path) })) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "bg-white h-20 w-full gap-20 flex justify-center items-center fixed left-0 top-0", children: menuItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { className: "hover:underline", to: item.path, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: item.label }) }, item.path)) })
     );
   }
   return (
@@ -132,7 +132,7 @@ const Header = () => {
         "div",
         {
           className: `fixed top-0 left-0 h-full bg-white w-64 transform transition-transform duration-300 ease-in-out z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`,
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col text-2xl p-4 mt-16", children: menuItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3 w-28", onClick: toggleMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: item.path, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: item.label }, item.path) }) }, item.path)) })
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col text-2xl p-4 mt-16", children: menuItems.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-3 w-28", onClick: toggleMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: item.path, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: item.label }) }) }, item.path)) })
         }
       )
     ] })
@@ -178,8 +178,8 @@ const Image = ({ src, alt, className }) => {
     alt
   ] }) });
 };
-const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "#fff", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
-const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "#fff", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
+const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "#999", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
+const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "#999", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
   return "/" + dep;
@@ -235,7 +235,7 @@ const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-94893948.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-7f11e2f8.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-331befd8.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-a3655a41.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-91bfdbb7.js"), true ? [] : void 0).then((m) => m["default"]) });
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
@@ -244,7 +244,7 @@ const useProjects = () => {
           title: data.title || "Без названия",
           description: data.description || "",
           images: data.images || [],
-          behanceLink: data.behanceLink
+          isOpen: data.isOpen || false
         };
         loadedProjects.push(project);
       }
@@ -254,7 +254,15 @@ const useProjects = () => {
   }, []);
   return { projects };
 };
+const ProjectCard = ({ images, title, isOpen }) => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " flex flex-col p-3 gap-3 rounded justify-center bg-white", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { className: " lg:h-[85vh]", src: images[0].url, alt: images[0].url }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: title }),
+    isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/project/${title}`, children: "Open full project..." })
+  ] });
+};
 const ProjectList = () => {
+  const lg = useMediaBreakpoint("lg");
   const [isOpen, setIsOpen] = reactExports.useState(false);
   const [currentProjectNumber, setCurrentProjectNumber] = reactExports.useState(0);
   const { projects } = useProjects();
@@ -276,24 +284,43 @@ const ProjectList = () => {
     setCurrentProjectNumber(num);
     setIsOpen(!isOpen);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col mt-20 lg:flex-row", children: [
-    isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: ` p-3 top-20 fixed z-40 bg-white left-2 right-2 lg:left-[27%] lg:top-3 lg:w-[46%]`, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: "fixed top-[40%] left-[18%]  items-center justify-center w-16", onClick: () => goBack() }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: projects[currentProjectNumber].images[0].url, alt: projects[currentProjectNumber].images[0].description }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: projects[currentProjectNumber].title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/project/${projects[currentProjectNumber].title}`, children: "Open full project..." })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "fixed left-[78%] top-[40%] items-center justify-center w-16", onClick: () => goNext() })
+  reactExports.useEffect(() => {
+    const handleKey = (event) => {
+      if (event.key === "Escape") {
+        toggle(0);
+      }
+      if (event.key === "ArrowRight") {
+        goNext();
+      }
+      if (event.key === "ArrowLeft") {
+        goBack();
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [toggle, goBack, goNext]);
+  if (lg) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex mt-20 flex-row", children: [
+      isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30", onClick: () => toggle(0) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center pointer-events-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " mr-5 z-50 items-center justify-center w-16", onClick: () => goBack() }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen, title: projects[currentProjectNumber].title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
+        ] }) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "div",
-        {
-          className: "fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30",
-          onClick: () => toggle(0)
-        }
-      )
+      projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:h-96 lg:w-96 lg:p-2", src: item.images[0].url }) }, item.title))
+    ] });
+  }
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col mt-20", children: [
+    isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-40 bg-black/70 flex flex-col items-center justify-center p-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen, title: projects[currentProjectNumber].title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex -mt-16 gap-52", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " z-50 items-center justify-center w-10", onClick: () => goBack() }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " z-50 items-center justify-center w-10", onClick: () => goNext() })
+      ] })
     ] }),
     projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:h-96 lg:w-96 lg:p-2", src: item.images[0].url }) }, item.title))
   ] });
@@ -316,8 +343,7 @@ const ProjectPage = () => {
       /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: project.title }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col lg:flex-row", children: project.images.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "w-96", src: item.url, alt: item.description }, index2)) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: project.behanceLink, children: "Bechance link" })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col lg:flex-row", children: project.images.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "w-96", src: item.url, alt: item.url }, index2)) })
   ] });
 };
 function App() {

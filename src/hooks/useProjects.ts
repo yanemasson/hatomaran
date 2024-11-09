@@ -16,7 +16,7 @@ export const useProjects = () => {
                     title: data.title || 'Без названия',
                     description: data.description || '',
                     images: data.images || [],
-                    behanceLink: data.behanceLink
+                    isOpen: data.isOpen || false
                 };
                 loadedProjects.push(project);
             }
