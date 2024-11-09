@@ -1,5 +1,5 @@
 import Image from "./Image.tsx";
-import {Project} from "../types/Project.ts";
+import {Project} from "../types/types.ts";
 import {Text, TextVariant} from "./Text.tsx";
 import {Link} from "react-router-dom";
 

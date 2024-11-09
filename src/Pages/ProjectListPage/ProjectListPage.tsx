@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+
 import Image from "../../components/Image.tsx";
 import { ReactComponent as LeftArrow } from "@/assets/icons/arrow_left.svg";
 import { ReactComponent as RightArrow } from "@/assets/icons/arrow_right.svg";
@@ -6,7 +7,7 @@ import {useProjects} from "../../hooks/useProjects.ts";
 import ProjectCard from "../../components/ProjectCard.tsx";
 import {useMediaBreakpoint} from "../../hooks/useMediaBreakpoint.ts";
 
-const ProjectList = () => {
+export const ProjectList = () => {
     const lg = useMediaBreakpoint('lg')
     const [isOpen, setIsOpen] = useState(false)
     const [currentProjectNumber, setCurrentProjectNumber] = useState(0)
@@ -57,9 +58,9 @@ const ProjectList = () => {
                         <div className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30" onClick={() => toggle(0)}/>
                         <div className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none" >
                             <div className='flex items-center pointer-events-auto'>
-                                <LeftArrow className=' mr-5 z-50 items-center justify-center w-16' onClick={() => goBack()}/>
-                                <ProjectCard images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen} title={projects[currentProjectNumber].title}/>
-                                <RightArrow className=' ml-5 z-50 items-center justify-center w-16' onClick={() => goNext()}/>
+                                <LeftArrow className='text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16' onClick={() => goBack()}/>
+                                <ProjectCard title={projects[currentProjectNumber].title} images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen}/>
+                                <RightArrow className='text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16' onClick={() => goNext()}/>
                             </div>
                         </div>
                     </>
@@ -75,7 +76,7 @@ const ProjectList = () => {
         <div className="flex flex-col mt-20">
             {isOpen &&
                 <div className="fixed inset-0 z-40 bg-black/70 flex flex-col items-center justify-center p-4" >
-                    <ProjectCard images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen} title={projects[currentProjectNumber].title}/>
+                    <ProjectCard title={projects[currentProjectNumber].title} images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen}/>
                     <div className='flex -mt-16 gap-52'>
                         <LeftArrow className=' z-50 items-center justify-center w-10' onClick={() => goBack()}/>
                         <RightArrow className=' z-50 items-center justify-center w-10' onClick={() => goNext()}/>

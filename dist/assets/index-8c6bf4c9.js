@@ -42,7 +42,7 @@ import { r as reactExports, j as jsxRuntimeExports, L as Link, m as matter, u as
 })();
 const App$1 = "";
 const BurgerButton = ({ onClick }) => {
-  const SpanClassName = " block w-8 h-[3px] rounded bg-black transition-all duration-300 ease-out";
+  const SpanClassName = " block w-[36px] h-[3px] rounded bg-black transition-all duration-300 ease-out";
   const [isOpen, setIsOpen] = reactExports.useState(false);
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -50,10 +50,10 @@ const BurgerButton = ({ onClick }) => {
       onClick();
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: handleClick, className: "flex flex-col gap-1.5 justify-center items-center w-10 h-10", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "rotate-45 translate-y-2"}` }),
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: handleClick, className: `flex flex-col justify-center items-center h-10 ${!isOpen && "gap-1.5"}`, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "rotate-45 translate-y-[3px]"}` }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "opacity-0"}` }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "-rotate-45 -translate-y-2"}` })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "-rotate-45 -translate-y-[3px]"}` })
   ] });
 };
 const breakpointValuesMap = {
@@ -105,6 +105,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = reactExports.useState(false);
   const menuItems = [
     { path: "/", label: "Projects" },
+    { path: "/animations", label: "Animations" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" }
   ];
@@ -151,8 +152,8 @@ const Footer = () => {
       /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: "https://t.me/hatomarano", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: "tg: @hatomarano" }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-center items-center lg:flex-row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: "https://www.behance.net/hatomar", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SvgIcInstagram, {}) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: "https://www.instagram.com/hatomaran", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SvgIcBehance, {}) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: "https://www.instagram.com/hatomaran", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SvgIcInstagram, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Anchor, { to: "https://www.behance.net/hatomar", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SvgIcBehance, {}) })
     ] })
   ] });
 };
@@ -178,8 +179,8 @@ const Image = ({ src, alt, className }) => {
     alt
   ] }) });
 };
-const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "#999", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
-const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "#999", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
+const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
+const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
   return "/" + dep;
@@ -235,7 +236,7 @@ const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-331befd8.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-a3655a41.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-91bfdbb7.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-5deba2e3.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-440a976c.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-74504627.js"), true ? [] : void 0).then((m) => m["default"]) });
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
@@ -244,7 +245,8 @@ const useProjects = () => {
           title: data.title || "Без названия",
           description: data.description || "",
           images: data.images || [],
-          isOpen: data.isOpen || false
+          isOpen: data.isOpen || false,
+          tag: data.tag
         };
         loadedProjects.push(project);
       }
@@ -306,9 +308,9 @@ const ProjectList = () => {
       isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30", onClick: () => toggle(0) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center pointer-events-auto", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " mr-5 z-50 items-center justify-center w-16", onClick: () => goBack() }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen, title: projects[currentProjectNumber].title }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: "text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16", onClick: () => goBack() }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
         ] }) })
       ] }),
       projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:h-96 lg:w-96 lg:p-2", src: item.images[0].url }) }, item.title))
@@ -316,7 +318,7 @@ const ProjectList = () => {
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col mt-20", children: [
     isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-40 bg-black/70 flex flex-col items-center justify-center p-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen, title: projects[currentProjectNumber].title }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex -mt-16 gap-52", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " z-50 items-center justify-center w-10", onClick: () => goBack() }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " z-50 items-center justify-center w-10", onClick: () => goNext() })

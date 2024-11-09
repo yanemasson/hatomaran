@@ -13,8 +13,8 @@ const Footer = () => {
             </div>
 
             <div className='flex flex-col justify-center items-center lg:flex-row'>
-                <Anchor to={'https://www.behance.net/hatomar'}><InstagramIcon/></Anchor>
-                <Anchor to={'https://www.instagram.com/hatomaran'}><BehanceIcon/></Anchor>
+                <Anchor to={'https://www.instagram.com/hatomaran'}><InstagramIcon/></Anchor>
+                <Anchor to={'https://www.behance.net/hatomar'}><BehanceIcon/></Anchor>
             </div>
         </div>
 )};

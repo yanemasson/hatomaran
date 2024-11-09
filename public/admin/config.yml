@@ -15,6 +15,9 @@ collections:
       - { label: "Название", name: "title", widget: "string", required: true }
       - { label: "Описание", name: "description", widget: "text", required: false }
       - { label: "Нужна ли отдельная страница?", name: "isOpen", widget: "boolean", default: false, required: false }
+      - { label: "Тэг", name: "tag", widget: "select",
+            options: [ "animation" ],
+            required: false }
       - label: "Изображение"
         name: "images"
         widget: "list"

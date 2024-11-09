@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import matter from 'gray-matter-browser';
-import {Project} from "../types/Project.ts";
+import {Project} from "../types/types.ts";
+
 
 export const useProjects = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -11,16 +12,16 @@ export const useProjects = () => {
             for (const path in projectFiles) {
                 const fileContent = await projectFiles[path]();
                 const { data} = matter(fileContent);
-
                 const project: Project = {
                     title: data.title || 'Без названия',
                     description: data.description || '',
                     images: data.images || [],
-                    isOpen: data.isOpen || false
-                };
+                    isOpen: data.isOpen || false,
+                    tag: data.tag
+                }
                 loadedProjects.push(project);
             }
-                setProjects(loadedProjects);
+            setProjects(loadedProjects)
         };
 
         loadProjects();
