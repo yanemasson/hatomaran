@@ -341,7 +341,7 @@ const ProjectPage = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center mt-20", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-10 flex flex-col items-start gap-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: project.title }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
+      project.description && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col lg:flex-row", children: project.images.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "w-96", src: item.url, alt: item.url }, index2)) })
   ] });
