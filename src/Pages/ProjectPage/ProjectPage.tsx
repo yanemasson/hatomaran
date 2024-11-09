@@ -15,7 +15,7 @@ const ProjectPage = () => {
         <div className="flex flex-col items-center mt-20">
             <div className='p-10 flex flex-col items-start gap-4'>
                 <Text variant={TextVariant.H1}>{project.title}</Text>
-                <Text variant={TextVariant.P}>{project.description}</Text>
+                {project.description && <Text variant={TextVariant.P}>{project.description}</Text>}
             </div>
             <div className='flex flex-col lg:flex-row'>
                 {project.images.map((item, index) => (<img className='w-96' src={item.url} alt={item.url} key={index}/>))}

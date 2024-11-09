@@ -12,22 +12,22 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Tittle", name: "title", widget: "string", required: true }
-      - { label: "Description", name: "description", widget: "text", required: true }
-      - { label: "Ссылка на Behance", name: "behanceLink", widget: "string", required: false }
-      - label: "Images"
+      - { label: "Название", name: "title", widget: "string", required: true }
+      - { label: "Описание", name: "description", widget: "text", required: false }
+      - { label: "Нужна ли отдельная страница?", widget: "boolean", default: false, required: false }
+      - label: "Изображение"
         name: "images"
         widget: "list"
         fields:
           - {
-            label: "Image",
+            label: "Изображение",
             name: "url",
             widget: "image",
             required: true
           }
           - {
-            label: "Image description",
-            name: "description",
+            label: "Название",
+            name: "title",
             widget: "string",
             required: false
           }
