@@ -33,9 +33,8 @@ export const ProjectList = (tag: Tag) => {
     }
 
     useEffect(() => {
-        console.log(projects)
         const handleKey = (event : KeyboardEvent) => {
-            if (event.key === 'Escape') {
+            if (event.key === 'Escape' && isOpen) {
                 toggle(0);
             }
             if (event.key === 'ArrowRight') {
@@ -52,44 +51,37 @@ export const ProjectList = (tag: Tag) => {
         };
     }, [toggle, goBack, goNext]);
 
-    if(lg){
-        return (
-            <div className="grid grid-cols-3 mt-20 ">
-                {isOpen &&
-                    <>
-                        <div className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30" onClick={() => toggle(0)}/>
-                        <div className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none" >
-                            <div className='flex items-center pointer-events-auto'>
-                                <LeftArrow className='text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16' onClick={() => goBack()}/>
-                                <ProjectCard tag={projects[currentProjectNumber].tag} title={projects[currentProjectNumber].title} images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen}/>
-                                <RightArrow className='text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16' onClick={() => goNext()}/>
-                            </div>
+    return (
+        <div className="columns-3 gap-4 mt-20 ">
+            {isOpen &&
+                <>
+                    <div className="fixed inset-0 bg-black/50 transition-opacity z-30" onClick={() => toggle(0)}/>
+                    <div className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none" >
+                        <div className='flex items-center pointer-events-auto'>
+                            {lg ? ( <>
+                                        <LeftArrow className='text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16' onClick={() => goBack()}/>
+                                        <RightArrow className='text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16' onClick={() => goNext()}/>
+                                    </>
+                        ) : ( <>
+                                    <ProjectCard animations={projects[currentProjectNumber].animations} tag={projects[currentProjectNumber].tag} title={projects[currentProjectNumber].title} images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen}/>
+                                    <div className='flex -mt-16 gap-52'>
+                                        <LeftArrow className=' z-50 items-center justify-center w-10' onClick={() => goBack()}/>
+                                        <RightArrow className=' z-50 items-center justify-center w-10' onClick={() => goNext()}/>
+                                    </div>
+                                </>
+
+                        )}
                         </div>
+                    </div>
                     </>
                 }
-                {projects.map((item, index) => (
-                    <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 lg:p-2'  src={item.images[0].url} /></div>
-                ))}
+                <div className="grid-item row-span-2">
+                    {projects.map((item, index) => (
+                        <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 '  src={item.images[0].url} /></div>))
+                }
+                </div>
             </div>
         )
     }
-
-    return (
-        <div className="flex flex-col mt-20">
-            {isOpen &&
-                <div className="fixed inset-0 z-40 bg-black/70 flex flex-col items-center justify-center p-4" >
-                    <ProjectCard tag={projects[currentProjectNumber].tag} title={projects[currentProjectNumber].title} images={projects[currentProjectNumber].images} isOpen={projects[currentProjectNumber].isOpen}/>
-                    <div className='flex -mt-16 gap-52'>
-                        <LeftArrow className=' z-50 items-center justify-center w-10' onClick={() => goBack()}/>
-                        <RightArrow className=' z-50 items-center justify-center w-10' onClick={() => goNext()}/>
-                    </div>
-                </div>
-            }
-            {projects.map((item, index) => (
-                <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 lg:h-96 lg:w-96 lg:p-2'  src={item.images[0].url} /></div>
-            ))}
-        </div>
-    );
-};
 
 export default ProjectList;

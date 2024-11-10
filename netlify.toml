@@ -17,6 +17,12 @@
   [headers.values]
     Content-Type = "image/png"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -34,3 +34,19 @@ collections:
             widget: "string",
             required: false
           }
+      - label: "Анимация"
+        name: "animation"
+        widget: "list"
+        fields:
+          - {
+            label: "Видео",
+            name: "video",
+            widget: "file",
+            required: false
+          }
+          - {
+            label: "Название",
+            name: "title",
+            widget: "string",
+            required: false
+          }
