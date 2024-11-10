@@ -54,7 +54,7 @@ export const ProjectList = (tag: Tag) => {
 
     if(lg){
         return (
-            <div className="flex mt-20 flex-row">
+            <div className="grid grid-cols-3 mt-20 ">
                 {isOpen &&
                     <>
                         <div className="fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30" onClick={() => toggle(0)}/>
@@ -68,7 +68,7 @@ export const ProjectList = (tag: Tag) => {
                     </>
                 }
                 {projects.map((item, index) => (
-                    <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 lg:h-96 lg:w-96 lg:p-2'  src={item.images[0].url} /></div>
+                    <div key={item.title} onClick={() => toggle(index)}><Image alt={item.title} className='py-2 lg:p-2'  src={item.images[0].url} /></div>
                 ))}
             </div>
         )

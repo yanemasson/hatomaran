@@ -308,7 +308,7 @@ const ProjectList = (tag) => {
     };
   }, [toggle, goBack, goNext]);
   if (lg) {
-    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex mt-20 flex-row", children: [
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-3 mt-20 ", children: [
       isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30", onClick: () => toggle(0) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center pointer-events-auto", children: [
@@ -317,7 +317,7 @@ const ProjectList = (tag) => {
           /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
         ] }) })
       ] }),
-      projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:h-96 lg:w-96 lg:p-2", src: item.images[0].url }) }, item.title))
+      projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:p-2", src: item.images[0].url }) }, item.title))
     ] });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col mt-20", children: [
