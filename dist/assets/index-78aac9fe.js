@@ -181,62 +181,11 @@ const Image = ({ src, alt, className }) => {
 };
 const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
 const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
-const scriptRel = "modulepreload";
-const assetsURL = function(dep) {
-  return "/" + dep;
-};
-const seen = {};
-const __vitePreload = function preload(baseModule, deps, importerUrl) {
-  if (!deps || deps.length === 0) {
-    return baseModule();
-  }
-  const links = document.getElementsByTagName("link");
-  return Promise.all(deps.map((dep) => {
-    dep = assetsURL(dep);
-    if (dep in seen)
-      return;
-    seen[dep] = true;
-    const isCss = dep.endsWith(".css");
-    const cssSelector = isCss ? '[rel="stylesheet"]' : "";
-    const isBaseRelative = !!importerUrl;
-    if (isBaseRelative) {
-      for (let i = links.length - 1; i >= 0; i--) {
-        const link2 = links[i];
-        if (link2.href === dep && (!isCss || link2.rel === "stylesheet")) {
-          return;
-        }
-      }
-    } else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
-      return;
-    }
-    const link = document.createElement("link");
-    link.rel = isCss ? "stylesheet" : scriptRel;
-    if (!isCss) {
-      link.as = "script";
-      link.crossOrigin = "";
-    }
-    link.href = dep;
-    document.head.appendChild(link);
-    if (isCss) {
-      return new Promise((res, rej) => {
-        link.addEventListener("load", res);
-        link.addEventListener("error", () => rej(new Error(`Unable to preload CSS for ${dep}`)));
-      });
-    }
-  })).then(() => baseModule()).catch((err) => {
-    const e = new Event("vite:preloadError", { cancelable: true });
-    e.payload = err;
-    window.dispatchEvent(e);
-    if (!e.defaultPrevented) {
-      throw err;
-    }
-  });
-};
 const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-5deba2e3.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-a3655a41.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-74504627.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({});
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
