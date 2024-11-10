@@ -105,7 +105,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = reactExports.useState(false);
   const menuItems = [
     { path: "/", label: "Projects" },
-    { path: "/animations", label: "Animations" },
+    { path: "/animation", label: "Animation" },
     { path: "/about", label: "About" },
     { path: "/contact", label: "Contact" }
   ];
@@ -236,7 +236,7 @@ const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-5deba2e3.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-440a976c.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-74504627.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/boing.md": () => __vitePreload(() => import("./boing-5deba2e3.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/pohuypank.md": () => __vitePreload(() => import("./pohuypank-a3655a41.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/говно-носорога.md": () => __vitePreload(() => import("./говно-носорога-74504627.js"), true ? [] : void 0).then((m) => m["default"]) });
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
@@ -246,7 +246,7 @@ const useProjects = () => {
           description: data.description || "",
           images: data.images || [],
           isOpen: data.isOpen || false,
-          tag: data.tag
+          tag: { value: data.tag || "project" }
         };
         loadedProjects.push(project);
       }
@@ -254,7 +254,7 @@ const useProjects = () => {
     };
     loadProjects();
   }, []);
-  return { projects };
+  return projects;
 };
 const ProjectCard = ({ images, title, isOpen }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " flex flex-col p-3 gap-3 rounded justify-center bg-white", children: [
@@ -263,11 +263,14 @@ const ProjectCard = ({ images, title, isOpen }) => {
     isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/project/${title}`, children: "Open full project..." })
   ] });
 };
-const ProjectList = () => {
+const ProjectList = (tag) => {
   const lg = useMediaBreakpoint("lg");
   const [isOpen, setIsOpen] = reactExports.useState(false);
   const [currentProjectNumber, setCurrentProjectNumber] = reactExports.useState(0);
-  const { projects } = useProjects();
+  const projects = useProjects().filter((item) => {
+    var _a;
+    return ((_a = item.tag) == null ? void 0 : _a.value) === tag.value;
+  });
   const goBack = () => {
     if (currentProjectNumber === 0) {
       setCurrentProjectNumber(projects.length - 1);
@@ -287,6 +290,7 @@ const ProjectList = () => {
     setIsOpen(!isOpen);
   };
   reactExports.useEffect(() => {
+    console.log(projects);
     const handleKey = (event) => {
       if (event.key === "Escape") {
         toggle(0);
@@ -309,7 +313,7 @@ const ProjectList = () => {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-black bg-opacity-50 transition-opacity z-30", onClick: () => toggle(0) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center pointer-events-auto", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: "text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16", onClick: () => goBack() }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { tag: projects[currentProjectNumber].tag, title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
         ] }) })
       ] }),
@@ -318,7 +322,7 @@ const ProjectList = () => {
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col mt-20", children: [
     isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "fixed inset-0 z-40 bg-black/70 flex flex-col items-center justify-center p-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { tag: projects[currentProjectNumber].tag, title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex -mt-16 gap-52", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " z-50 items-center justify-center w-10", onClick: () => goBack() }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " z-50 items-center justify-center w-10", onClick: () => goNext() })
@@ -327,6 +331,9 @@ const ProjectList = () => {
     projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 lg:h-96 lg:w-96 lg:p-2", src: item.images[0].url }) }, item.title))
   ] });
 };
+const ProjectListPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectList, { value: "project" });
+};
 const AboutPage = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: "About me" }) });
 };
@@ -334,7 +341,7 @@ const ContactPage = () => {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-20", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: "Contact & Testimonials" }) });
 };
 const ProjectPage = () => {
-  const { projects } = useProjects();
+  const projects = useProjects();
   const { title } = useParams();
   const project = projects.find((p) => p.title === title);
   if (!project) {
@@ -348,11 +355,15 @@ const ProjectPage = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col lg:flex-row", children: project.images.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "w-96", src: item.url, alt: item.url }, index2)) })
   ] });
 };
+const AnimationListPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectList, { value: "animation" });
+};
 function App() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(HashRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-grow px-4 lg:px-48", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectList, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectListPage, {}) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/animation", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimationListPage, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/about", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutPage, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/contact", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactPage, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/project/:title", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectPage, {}) })

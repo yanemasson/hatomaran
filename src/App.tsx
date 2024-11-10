@@ -6,6 +6,7 @@ import ProjectListPage from "./Pages/ProjectListPage/ProjectListPage.tsx";
 import AboutPage from './Pages/AboutPage/AboutPage.tsx'
 import ContactPage from './Pages/ContactPage/ContactPage.tsx'
 import ProjectPage from "./Pages/ProjectPage/ProjectPage.tsx";
+import AnimationListPage from "./Pages/AnimationListPage/AnimationListPage.tsx";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <main className="flex-grow px-4 lg:px-48">
                     <Routes>
                         <Route path="/" element={<ProjectListPage />} />
+                        <Route path="/animation" element={<AnimationListPage/>}/>
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/contact" element={<ContactPage />} />
                         <Route path="/project/:title" element={<ProjectPage />}/>

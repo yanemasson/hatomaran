@@ -4,7 +4,7 @@ export interface Image {
 }
 
 export interface Tag {
-    value: 'animation' | 'project' | null;
+    value: 'animation' | 'project'
 }
 
 export interface Project {
@@ -12,5 +12,5 @@ export interface Project {
     isOpen?: boolean
     description?: string
     images: Image[];
-    tag?: Tag
+    tag: Tag
 }

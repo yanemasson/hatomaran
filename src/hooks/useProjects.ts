@@ -17,7 +17,7 @@ export const useProjects = () => {
                     description: data.description || '',
                     images: data.images || [],
                     isOpen: data.isOpen || false,
-                    tag: data.tag
+                    tag: { value:data.tag || 'project' }
                 }
                 loadedProjects.push(project);
             }
@@ -27,7 +27,7 @@ export const useProjects = () => {
         loadProjects();
     }, []);
 
-    return { projects};
+    return projects;
 };
 
 export default useProjects;

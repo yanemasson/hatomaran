@@ -9,7 +9,7 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
     const menuItems = [
         { path: '/', label: 'Projects' },
-        { path: '/animations', label: 'Animations'},
+        { path: '/animation', label: 'Animation'},
         { path: '/about', label: 'About' },
         { path: '/contact', label: 'Contact' },
     ]

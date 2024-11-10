@@ -3,7 +3,7 @@ import {Text, TextVariant} from "../../components/Text.tsx";
 import useProjects from "../../hooks/useProjects.ts";
 
 const ProjectPage = () => {
-    const { projects } = useProjects()
+    const projects = useProjects()
     const { title } = useParams<string>();
     const project = projects.find(p => p.title === title);
 
