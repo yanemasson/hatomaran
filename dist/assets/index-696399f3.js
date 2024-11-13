@@ -236,7 +236,7 @@ const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/иллюстрация-на-основе-ai-для-боулинг-клуба.md": () => __vitePreload(() => import("./иллюстрация-на-основе-ai-для-боулинг-клуба-7fbdca6f.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/копия-платка-18-века.md": () => __vitePreload(() => import("./копия-платка-18-века-22b1afdd.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/мемы-смешные.md": () => __vitePreload(() => import("./мемы-смешные-d920e0a1.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/обложки-для-рэперов-жесткие.md": () => __vitePreload(() => import("./обложки-для-рэперов-жесткие-a1edfa67.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/упаковка-и-логотип-чая.md": () => __vitePreload(() => import("./упаковка-и-логотип-чая-ace77a11.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/анимация-диаграма-круто-бизнес.md": () => __vitePreload(() => import("./анимация-диаграма-круто-бизнес-a512cb10.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/иллюстрация-на-основе-ai-для-боулинг-клуба.md": () => __vitePreload(() => import("./иллюстрация-на-основе-ai-для-боулинг-клуба-7fbdca6f.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/копия-платка-18-века.md": () => __vitePreload(() => import("./копия-платка-18-века-2a9cdf8a.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/мемы-смешные.md": () => __vitePreload(() => import("./мемы-смешные-d920e0a1.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/обложки-для-рэперов-жесткие.md": () => __vitePreload(() => import("./обложки-для-рэперов-жесткие-a1edfa67.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/упаковка-и-логотип-чая.md": () => __vitePreload(() => import("./упаковка-и-логотип-чая-ace77a11.js"), true ? [] : void 0).then((m) => m["default"]) });
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
@@ -245,10 +245,11 @@ const useProjects = () => {
           title: data.title || "Без названия",
           description: data.description || "",
           images: data.images || [],
-          animations: data.animations || [],
+          animations: data.animation || [],
           isOpen: data.isOpen || false,
           tag: { value: data.tag || "project" }
         };
+        console.log(data);
         loadedProjects.push(project);
       }
       setProjects(loadedProjects);
@@ -257,9 +258,10 @@ const useProjects = () => {
   }, []);
   return projects;
 };
-const ProjectCard = ({ images, title, isOpen }) => {
+const ProjectCard = ({ images, animations, title, isOpen }) => {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " flex flex-col p-3 gap-3 rounded justify-center bg-white", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { className: " lg:h-[85vh]", src: images[0].url, alt: images[0].url }),
+    images[0] && /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { className: " lg:h-[85vh]", src: images[0].url, alt: images[0].url }),
+    animations[0] && /* @__PURE__ */ jsxRuntimeExports.jsx("video", { className: " lg:h-[85vh]", autoPlay: true, loop: true, muted: true, playsInline: true, src: animations[0].url }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H6, children: title }),
     isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: `/project/${title}`, children: "Open full project..." })
   ] });
@@ -307,21 +309,43 @@ const ProjectList = (tag) => {
       document.removeEventListener("keydown", handleKey);
     };
   }, [toggle, goBack, goNext]);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "columns-3 gap-4 mt-20 ", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:columns-3 gap-4 mt-20 ", children: [
     isOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 bg-black/50 transition-opacity z-30", onClick: () => toggle(0) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-40 flex items-center justify-center pointer-events-none", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center pointer-events-auto", children: lg ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: "text-gray-400 hover:text-white mr-5 z-50 items-center justify-center w-16", onClick: () => goBack() }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ProjectCard,
+          {
+            animations: projects[currentProjectNumber].animations,
+            tag: projects[currentProjectNumber].tag,
+            title: projects[currentProjectNumber].title,
+            images: projects[currentProjectNumber].images,
+            isOpen: projects[currentProjectNumber].isOpen
+          }
+        ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "text-gray-400 hover:text-white ml-5 z-50 items-center justify-center w-16", onClick: () => goNext() })
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectCard, { animations: projects[currentProjectNumber].animations, tag: projects[currentProjectNumber].tag, title: projects[currentProjectNumber].title, images: projects[currentProjectNumber].images, isOpen: projects[currentProjectNumber].isOpen }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex -mt-16 gap-52", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: " z-50 items-center justify-center w-10", onClick: () => goBack() }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: " z-50 items-center justify-center w-10", onClick: () => goNext() })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          ProjectCard,
+          {
+            animations: projects[currentProjectNumber].animations,
+            tag: projects[currentProjectNumber].tag,
+            title: projects[currentProjectNumber].title,
+            images: projects[currentProjectNumber].images,
+            isOpen: projects[currentProjectNumber].isOpen
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex mt-8 justify-around", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowLeft, { className: "text-gray-400  z-50 items-center justify-center h-16 w-16", onClick: () => goBack() }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SvgArrowRight, { className: "text-gray-400  z-50 items-center justify-center h-16 w-16", onClick: () => goNext() })
         ] })
       ] }) }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid-item row-span-2", children: projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { onClick: () => toggle(index2), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2 ", src: item.images[0].url }) }, item.title)) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid-item row-span-2", children: projects.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { onClick: () => toggle(index2), children: [
+      item.images[0] && /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { alt: item.title, className: "py-2", src: item.images[0].url }),
+      item.animations[0] && /* @__PURE__ */ jsxRuntimeExports.jsx("video", { autoPlay: true, loop: true, muted: true, playsInline: true, src: item.animations[0].url })
+    ] }, item.title)) })
   ] });
 };
 const ProjectListPage = () => {
@@ -340,12 +364,33 @@ const ProjectPage = () => {
   if (!project) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: "404" });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center mt-20", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-10 flex flex-col items-start gap-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: project.title }),
-      project.description && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 flex-col", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " mt-20 flex gap-20 flex-row", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col w-1/2 gap-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
+        project.images[0] && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: project.images[0].url, alt: project.images[0].url }),
+          project.images[0].title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.images[0].title })
+        ] }),
+        project.animations[0] && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("video", { autoPlay: true, loop: true, muted: true, playsInline: true, src: project.animations[0].url }),
+          project.animations[0].title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.animations[0].title })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-10 w-1/2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: project.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
+      ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col lg:flex-row", children: project.images.map((item, index2) => /* @__PURE__ */ jsxRuntimeExports.jsx("img", { className: "w-96", src: item.url, alt: item.url }, index2)) })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      project.images[1] && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: project.images.slice(1).map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: item.url, alt: item.url }),
+        item.title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: item.title })
+      ] })) }),
+      project.animations[1] && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: project.animations.slice(1).map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: item.url }),
+        item.title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: item.title })
+      ] })) })
+    ] })
   ] });
 };
 const AnimationListPage = () => {

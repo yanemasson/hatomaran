@@ -26,7 +26,7 @@ collections:
             label: "Изображение",
             name: "url",
             widget: "image",
-            required: true
+            required: false
           }
           - {
             label: "Название",
@@ -40,7 +40,7 @@ collections:
         fields:
           - {
             label: "Видео",
-            name: "video",
+            name: "url",
             widget: "file",
             required: false
           }

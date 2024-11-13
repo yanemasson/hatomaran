@@ -16,10 +16,11 @@ export const useProjects = () => {
                     title: data.title || 'Без названия',
                     description: data.description || '',
                     images: data.images || [],
-                    animations: data.animations || [],
+                    animations: data.animation || [],
                     isOpen: data.isOpen || false,
                     tag: { value:data.tag || 'project' }
                 }
+                console.log(data)
                 loadedProjects.push(project);
             }
             setProjects(loadedProjects)
