@@ -32,9 +32,9 @@ const Header = () => {
     }
 
     return ( //mobile
-        <nav className='bg-white fixed top-0 left-0 w-full h-20 flex justify-center items-center'>
+        <nav className='bg-white fixed top-0 left-0 w-full h-20 z-50 flex justify-center items-center'>
             <div className="fixed justify-center top-5 left-5 z-50">
-                <BurgerButton onClick={toggleMenu} />
+                <BurgerButton isOpen={isOpen} toggleMenu={toggleMenu} />
             </div>
             {isOpen && (
                 <div

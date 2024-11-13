@@ -1,4 +1,4 @@
-import { r as reactExports, j as jsxRuntimeExports, L as Link, m as matter, u as useParams, H as HashRouter, R as Routes, a as Route, c as createRoot } from "./vendor-a6d6e3e5.js";
+import { j as jsxRuntimeExports, r as reactExports, L as Link, m as matter, u as useParams, H as HashRouter, R as Routes, a as Route, c as createRoot } from "./vendor-a6d6e3e5.js";
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -41,16 +41,9 @@ import { r as reactExports, j as jsxRuntimeExports, L as Link, m as matter, u as
   }
 })();
 const App$1 = "";
-const BurgerButton = ({ onClick }) => {
+const BurgerButton = ({ isOpen, toggleMenu }) => {
   const SpanClassName = " block w-[36px] h-[3px] rounded bg-black transition-all duration-300 ease-out";
-  const [isOpen, setIsOpen] = reactExports.useState(false);
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-    if (onClick) {
-      onClick();
-    }
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: handleClick, className: `flex flex-col justify-center items-center h-10 ${!isOpen && "gap-1.5"}`, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: toggleMenu, className: `flex flex-col justify-center items-center h-10 ${!isOpen && "gap-1.5"}`, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "rotate-45 translate-y-[3px]"}` }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "opacity-0"}` }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: `${SpanClassName} ${isOpen && "-rotate-45 -translate-y-[3px]"}` })
@@ -120,8 +113,8 @@ const Header = () => {
   }
   return (
     //mobile
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "bg-white fixed top-0 left-0 w-full h-20 flex justify-center items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed justify-center top-5 left-5 z-50", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BurgerButton, { onClick: toggleMenu }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "bg-white fixed top-0 left-0 w-full h-20 z-50 flex justify-center items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed justify-center top-5 left-5 z-50", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BurgerButton, { isOpen, toggleMenu }) }),
       isOpen && /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {
@@ -236,7 +229,7 @@ const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);
   reactExports.useEffect(() => {
     const loadProjects = async () => {
-      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/анимация-диаграма-круто-бизнес.md": () => __vitePreload(() => import("./анимация-диаграма-круто-бизнес-a512cb10.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/иллюстрация-на-основе-ai-для-боулинг-клуба.md": () => __vitePreload(() => import("./иллюстрация-на-основе-ai-для-боулинг-клуба-7fbdca6f.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/копия-платка-18-века.md": () => __vitePreload(() => import("./копия-платка-18-века-2a9cdf8a.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/мемы-смешные.md": () => __vitePreload(() => import("./мемы-смешные-d920e0a1.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/обложки-для-рэперов-жесткие.md": () => __vitePreload(() => import("./обложки-для-рэперов-жесткие-a1edfa67.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/упаковка-и-логотип-чая.md": () => __vitePreload(() => import("./упаковка-и-логотип-чая-ace77a11.js"), true ? [] : void 0).then((m) => m["default"]) });
+      const projectFiles = /* @__PURE__ */ Object.assign({ "/content/projects/анимация-диаграма-круто-бизнес.md": () => __vitePreload(() => import("./анимация-диаграма-круто-бизнес-e035fb81.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/иллюстрация-на-основе-ai-для-боулинг-клуба.md": () => __vitePreload(() => import("./иллюстрация-на-основе-ai-для-боулинг-клуба-7fbdca6f.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/копия-платка-18-века.md": () => __vitePreload(() => import("./копия-платка-18-века-2a9cdf8a.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/мемы-смешные.md": () => __vitePreload(() => import("./мемы-смешные-d920e0a1.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/обложки-для-рэперов-жесткие.md": () => __vitePreload(() => import("./обложки-для-рэперов-жесткие-a1edfa67.js"), true ? [] : void 0).then((m) => m["default"]), "/content/projects/упаковка-и-логотип-чая.md": () => __vitePreload(() => import("./упаковка-и-логотип-чая-ace77a11.js"), true ? [] : void 0).then((m) => m["default"]) });
       const loadedProjects = [];
       for (const path in projectFiles) {
         const fileContent = await projectFiles[path]();
@@ -365,8 +358,8 @@ const ProjectPage = () => {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: "404" });
   }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 flex-col", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " mt-20 flex gap-20 flex-row", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col w-1/2 gap-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: " mt-20 flex flex-col lg:flex-row gap-20", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex lg:flex-col lg:w-1/2 gap-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center", children: [
         project.images[0] && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Image, { src: project.images[0].url, alt: project.images[0].url }),
           project.images[0].title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.images[0].title })
@@ -376,7 +369,7 @@ const ProjectPage = () => {
           project.animations[0].title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.animations[0].title })
         ] })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-10 w-1/2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-10 lg:w-1/2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.H1, children: project.title }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: project.description })
       ] })
@@ -387,7 +380,7 @@ const ProjectPage = () => {
         item.title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: item.title })
       ] })) }),
       project.animations[1] && /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: project.animations.slice(1).map((item) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "py-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: item.url }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("video", { className: "lg:h-96", autoPlay: true, loop: true, muted: true, playsInline: true, src: item.url }),
         item.title && /* @__PURE__ */ jsxRuntimeExports.jsx(Text, { variant: TextVariant.P, children: item.title })
       ] })) })
     ] })
