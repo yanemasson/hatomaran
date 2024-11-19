@@ -19,3 +19,8 @@ export interface Project {
     animations: Animation[]
     tag: Tag
 }
+
+export interface AboutPageData {
+    description: string;
+}
+

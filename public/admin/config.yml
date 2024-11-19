@@ -50,3 +50,16 @@ collections:
             widget: "string",
             required: false
           }
+  - name: "pages"
+    label: "Страницы"
+    files:
+      - file: "content/pages/about.md"
+        label: "about"
+        name: "about"
+        fields:
+          - {label: "Описание", name: "description", widget: "string"}
+      - file: "content/pages/contact.md"
+        label: "contact"
+        name: "contact"
+        fields:
+          - { label: "Контакты", name: "contact", widget: "string" }
