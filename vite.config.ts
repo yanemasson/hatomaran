@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
+import imagemin from 'vite-plugin-imagemin';
 
 export default defineConfig({
   plugins: [
@@ -12,6 +13,23 @@ export default defineConfig({
         svgo: true,
       },
       include: '**/*.svg',
+    }),
+    imagemin({
+      verbose: true,
+      filter: /\.(jpe?g|png)$/i,
+      mozjpeg: {
+        quality: 80,
+        progressive: true,
+        optimize: true,
+        fastCrush: true,
+      },
+      optipng: {
+        optimizationLevel: 7,
+        bitDepthReduction: true,
+        colorTypeReduction: true,
+        paletteReduction: true,
+      },
+
     })
   ],
   assetsInclude: ['**/*.md'],
