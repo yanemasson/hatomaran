@@ -202,17 +202,17 @@ const Footer = () => {
   ] });
 };
 const Loader = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-black" }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pt-40 flex justify-center items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "animate-spin rounded-full h-40 w-40 border-8 border-gray-200 border-t-black" }) });
 };
 function App() {
-  const ProjectListPage = reactExports.lazy(() => __vitePreload(() => import("./ProjectListPage-85bb4d51.js"), true ? ["assets/ProjectListPage-85bb4d51.js","assets/vendor-a6d6e3e5.js","assets/ProjectList-c0d38e48.js","assets/useProjects-06c62bef.js"] : void 0));
-  const AnimationListPage = reactExports.lazy(() => __vitePreload(() => import("./AnimationListPage-29f708d6.js"), true ? ["assets/AnimationListPage-29f708d6.js","assets/vendor-a6d6e3e5.js","assets/ProjectList-c0d38e48.js","assets/useProjects-06c62bef.js"] : void 0));
-  const ProjectPage = reactExports.lazy(() => __vitePreload(() => import("./ProjectPage-b4699f7d.js"), true ? ["assets/ProjectPage-b4699f7d.js","assets/vendor-a6d6e3e5.js","assets/useProjects-06c62bef.js"] : void 0));
-  const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./AboutPage-8e14fba2.js"), true ? ["assets/AboutPage-8e14fba2.js","assets/vendor-a6d6e3e5.js","assets/usePages-2855d1a0.js"] : void 0));
-  const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./ContactPage-c4685f8f.js"), true ? ["assets/ContactPage-c4685f8f.js","assets/vendor-a6d6e3e5.js","assets/usePages-2855d1a0.js"] : void 0));
+  const ProjectListPage = reactExports.lazy(() => __vitePreload(() => import("./ProjectListPage-c3609808.js"), true ? ["assets/ProjectListPage-c3609808.js","assets/vendor-a6d6e3e5.js","assets/ProjectList-e7c673b3.js","assets/useProjects-e2421ff8.js"] : void 0));
+  const AnimationListPage = reactExports.lazy(() => __vitePreload(() => import("./AnimationListPage-d85dcfb1.js"), true ? ["assets/AnimationListPage-d85dcfb1.js","assets/vendor-a6d6e3e5.js","assets/ProjectList-e7c673b3.js","assets/useProjects-e2421ff8.js"] : void 0));
+  const ProjectPage = reactExports.lazy(() => __vitePreload(() => import("./ProjectPage-db09bf94.js"), true ? ["assets/ProjectPage-db09bf94.js","assets/vendor-a6d6e3e5.js","assets/useProjects-e2421ff8.js"] : void 0));
+  const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./AboutPage-2ec9560f.js"), true ? ["assets/AboutPage-2ec9560f.js","assets/vendor-a6d6e3e5.js","assets/usePages-74ccd719.js"] : void 0));
+  const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./ContactPage-bf028bc7.js"), true ? ["assets/ContactPage-bf028bc7.js","assets/vendor-a6d6e3e5.js","assets/usePages-74ccd719.js"] : void 0));
   return /* @__PURE__ */ jsxRuntimeExports.jsx(HashRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(Loader, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-grow px-4 lg:px-48", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-grow px-4 lg:px-48", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(Loader, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ProjectListPage, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/animation", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimationListPage, {}) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/about", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AboutPage, {}) }),

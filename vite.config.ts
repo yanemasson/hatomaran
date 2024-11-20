@@ -29,7 +29,6 @@ export default defineConfig({
         colorTypeReduction: true,
         paletteReduction: true,
       },
-
     })
   ],
   assetsInclude: ['**/*.md'],

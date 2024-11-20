@@ -1,26 +1,9 @@
-import { r as reactExports, j as jsxRuntimeExports, m as matter } from "./vendor-a6d6e3e5.js";
-import { _ as __vitePreload } from "./index-30bb7789.js";
-const Image = ({ src, alt, className }) => {
-  const [isError, setIsError] = reactExports.useState(false);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: !isError ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "img",
-    {
-      src,
-      alt,
-      className,
-      onError: (e) => {
-        console.error("Image load error:", {
-          src,
-          alt,
-          target: e.target
-        });
-        setIsError(true);
-      }
-    }
-  ) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "error-placeholder", children: [
-    "Image failed to load: ",
-    alt
-  ] }) });
+import { j as jsxRuntimeExports, r as reactExports, m as matter } from "./vendor-a6d6e3e5.js";
+import { _ as __vitePreload } from "./index-45fc4978.js";
+const Image = ({ src, alt, isHref = false, className }) => {
+  if (isHref)
+    return /* @__PURE__ */ jsxRuntimeExports.jsx("a", { target: "_blank", href: src, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt, className }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src, alt, className });
 };
 const useProjects = () => {
   const [projects, setProjects] = reactExports.useState([]);

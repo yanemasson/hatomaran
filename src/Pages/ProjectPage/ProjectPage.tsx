@@ -18,7 +18,7 @@ const ProjectPage = () => {
                 <div className='flex lg:flex-col lg:w-1/2 gap-10'>
                     <div className='flex flex-col items-center'>
                         {project.images[0] && <>
-                            <Image src={project.images[0].url} alt={project.images[0].url}/>
+                            <Image isHref={true} src={project.images[0].url} alt={project.images[0].url}/>
                             {project.images[0].title && <Text variant={TextVariant.P}>{project.images[0].title}</Text>}
                         </>}
                         {project.animations[0] && <>
@@ -36,7 +36,7 @@ const ProjectPage = () => {
                 {project.images[1] && <>
                     {project.images.slice(1).map((item) => (
                         <div className='py-4'>
-                            <Image src={item.url} alt={item.url}/>
+                            <Image src={item.url} isHref={true} alt={item.url}/>
                             {item.title && <Text variant={TextVariant.P}>{item.title}</Text>}
                         </div>))}</>
                 }

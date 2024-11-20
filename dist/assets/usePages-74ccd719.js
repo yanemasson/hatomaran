@@ -1,4 +1,4 @@
-import { _ as __vitePreload } from "./index-30bb7789.js";
+import { _ as __vitePreload } from "./index-45fc4978.js";
 import { r as reactExports, m as matter } from "./vendor-a6d6e3e5.js";
 const usePages = (path) => {
   const [pageContent, setPageContent] = reactExports.useState({});

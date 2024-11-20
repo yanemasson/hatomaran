@@ -16,8 +16,8 @@ function App() {
         <Router>
             <div className="flex flex-col min-h-screen">
                 <Header />
-                    <Suspense fallback={<Loader/>}>
-                        <main className="flex-grow px-4 lg:px-48">
+                    <main className="flex-grow px-4 lg:px-48">
+                        <Suspense fallback={<Loader/>}>
                             <Routes>
                                 <Route path="/" element={<ProjectListPage />} />
                                 <Route path="/animation" element={<AnimationListPage/>}/>
@@ -25,8 +25,8 @@ function App() {
                                 <Route path="/contact" element={<ContactPage />} />
                                 <Route path="/project/:title" element={<ProjectPage />}/>
                             </Routes>
-                        </main>
-                    </Suspense>
+                        </Suspense>
+                    </main>
                 <Footer />
             </div>
         </Router>
