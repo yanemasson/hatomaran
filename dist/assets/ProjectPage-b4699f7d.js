@@ -1,6 +1,6 @@
 import { u as useParams, j as jsxRuntimeExports } from "./vendor-a6d6e3e5.js";
-import { T as Text, a as TextVariant } from "./index-98a04af7.js";
-import { u as useProjects, I as Image } from "./useProjects-782b035f.js";
+import { T as Text, a as TextVariant } from "./index-30bb7789.js";
+import { u as useProjects, I as Image } from "./useProjects-06c62bef.js";
 const ProjectPage = () => {
   const projects = useProjects();
   const { title } = useParams();

@@ -4,6 +4,7 @@ import {useMediaBreakpoint} from "../hooks/useMediaBreakpoint.ts";
 import {Text, TextVariant} from "./Text.tsx";
 import {Link} from "react-router-dom";
 
+
 const Header = () => {
     const lg = useMediaBreakpoint('lg')
     const [isOpen, setIsOpen] = useState(false)

@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports, L as Link } from "./vendor-a6d6e3e5.js";
-import { I as Image, u as useProjects } from "./useProjects-782b035f.js";
-import { T as Text, a as TextVariant, u as useMediaBreakpoint } from "./index-98a04af7.js";
+import { I as Image, u as useProjects } from "./useProjects-06c62bef.js";
+import { T as Text, a as TextVariant, u as useMediaBreakpoint } from "./index-30bb7789.js";
 const SvgArrowLeft = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M13 8L9 12M9 12L13 16M9 12H21M19.4845 7C17.8699 4.58803 15.1204 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C15.1204 21 17.8699 19.412 19.4845 17", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
 const SvgArrowRight = (props) => /* @__PURE__ */ reactExports.createElement("svg", { width: "200px", height: "200px", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", ...props }, /* @__PURE__ */ reactExports.createElement("path", { d: "M11 16L15 12M15 12L11 8M15 12H3M4.51555 17C6.13007 19.412 8.87958 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C8.87958 3 6.13007 4.58803 4.51555 7", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" }));
 const ProjectCard = ({ images, animations, title, isOpen }) => {

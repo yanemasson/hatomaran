@@ -3,6 +3,7 @@ import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import Loader from "./components/Loader.tsx";
 
 function App() {
     const ProjectListPage = lazy(() => import("./Pages/ProjectListPage/ProjectListPage.tsx"))
@@ -15,7 +16,7 @@ function App() {
         <Router>
             <div className="flex flex-col min-h-screen">
                 <Header />
-                    <Suspense fallback={<div>Loading...</div>}>
+                    <Suspense fallback={<Loader/>}>
                         <main className="flex-grow px-4 lg:px-48">
                             <Routes>
                                 <Route path="/" element={<ProjectListPage />} />
